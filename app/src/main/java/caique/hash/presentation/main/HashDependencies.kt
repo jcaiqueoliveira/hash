@@ -1,7 +1,9 @@
 package caique.hash.presentation.main
 
 import caique.hash.domain.boundary.LocalRepository
-import caique.hash.domain.usecase.HumanUseCase
+import caique.hash.domain.model.Matrix
+import caique.hash.domain.usecase.HistoryUseCase
+import caique.hash.domain.usecase.Winner
 import caique.hash.presentation.model.History
 import dagger.Module
 import dagger.Provides
@@ -15,8 +17,8 @@ class HashDependencies {
 
     @Provides
     @Reusable
-    fun provideHumanUseCase(localRepository: LocalRepository): HumanUseCase {
-        return HumanUseCase(localRepository);
+    fun provideHistoryUseCase(localRepository: LocalRepository): HistoryUseCase {
+        return HistoryUseCase(localRepository);
     }
 
     @Provides
@@ -27,8 +29,20 @@ class HashDependencies {
 
     @Provides
     @Reusable
-    fun providePresenter(humanUseCase: HumanUseCase, history: History): HashContract.Presenter {
-        return HashPresenter(humanUseCase, history)
+    fun provideMatrix(): Matrix {
+        return Matrix()
+    }
+
+    @Provides
+    @Reusable
+    fun provideWinner(): Winner {
+        return Winner()
+    }
+
+    @Provides
+    @Reusable
+    fun providePresenter(historyUseCase: HistoryUseCase, history: History, matrix: Matrix, winner: Winner): HashContract.Presenter {
+        return HashPresenter(historyUseCase, history, matrix, winner)
     }
 
 }

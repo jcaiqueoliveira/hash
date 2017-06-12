@@ -5,4 +5,7 @@ import caique.hash.domain.usecase.Player
 /**
  * Created by Kanda on 10/06/2017.
  */
-data class Played(val x: Int, val y: Int, val player: Player)
+class Played {
+    var x: Int = 0
+    var y: Int = 0
+}

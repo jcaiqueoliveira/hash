@@ -5,5 +5,5 @@ package caique.hash.domain.model
  */
 
 class Matrix {
-    internal var m = Array(3) { IntArray(3) }
+    var matrix = Array(3) { IntArray(3) }
 }

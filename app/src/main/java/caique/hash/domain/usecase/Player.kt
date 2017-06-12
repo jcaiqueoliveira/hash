@@ -8,7 +8,5 @@ import caique.hash.domain.model.Played
 
 abstract class Player {
 
-    fun play(player: Played) {
-
-    }
+    abstract fun play(player: Played)
 }

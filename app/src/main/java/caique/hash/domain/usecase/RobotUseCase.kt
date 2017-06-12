@@ -5,12 +5,12 @@ import caique.hash.domain.model.Played
 /**
  * Created by Kanda on 10/06/2017.
  */
-class RobotUseCase : Player(){
-    fun play(){
-        super.play(randomPlayer())
+class RobotUseCase : Player() {
+    override fun play(player: Played) {
+
     }
 
-    private fun randomPlayer(): Played{
-        return Played(0,0,this)
+    private fun randomPlayer(): Played {
+        return Played()
     }
 }

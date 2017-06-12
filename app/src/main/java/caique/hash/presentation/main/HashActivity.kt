@@ -9,7 +9,8 @@ import kotlinx.android.synthetic.main.activity_hash.*
 import javax.inject.Inject
 
 
-class HashActivity : BaseActivity(), HashContract.View {
+class HashActivity : BaseActivity(), HashContract.View, HashAdapter.OnItemClickListener {
+
 
 
     lateinit @Inject var presenter: HashContract.Presenter
@@ -26,7 +27,7 @@ class HashActivity : BaseActivity(), HashContract.View {
         presenter.loadHistory()
         hash.setHasFixedSize(true)
         hash.layoutManager = GridLayoutManager(this, 3)
-        hash.adapter = HashAdapter()
+        hash.adapter = HashAdapter(this)
         hash.isNestedScrollingEnabled = false
     }
 
@@ -34,5 +35,9 @@ class HashActivity : BaseActivity(), HashContract.View {
         victory.text = history.getHistoryOfVictories()
         defeat.text = history.getHistoryOfDefeates()
         tie.text = history.getHistoryOfTies()
+    }
+
+    override fun onItemClick(position: Int) {
+        presenter.played(position)
     }
 }

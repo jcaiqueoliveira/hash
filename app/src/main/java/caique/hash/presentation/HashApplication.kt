@@ -12,6 +12,5 @@ class HashApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
     }
 }

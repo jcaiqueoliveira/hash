@@ -8,11 +8,13 @@ import caique.hash.presentation.model.History
 interface HashContract {
     interface View {
         fun showHistory(history:History)
+        fun endGame(message: String)
     }
 
     interface Presenter {
         fun attach(view: View)
         fun detach()
         fun loadHistory()
+        fun played(position: Int)
     }
 }
