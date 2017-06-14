@@ -9,3 +9,7 @@
 * Injeção de dependência ( dagger 2 ) 
 * RxJava2 
 
+# To do
+
+* Testes unitários
+* Testes de interface
